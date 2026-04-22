@@ -1,0 +1,7 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37
+includedir=${prefix}/include
+ 
+Name: BigReqsProto
+Description: BigReqs extension headers
+Version: 1.1.2
+Cflags: -I${includedir}

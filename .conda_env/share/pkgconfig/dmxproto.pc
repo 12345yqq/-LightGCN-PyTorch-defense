@@ -1,0 +1,7 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env
+includedir=${prefix}/include
+ 
+Name: DMXProto
+Description: DMX extension headers
+Version: 2.3.1
+Cflags: -I${includedir}

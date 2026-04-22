@@ -1,0 +1,94 @@
+{
+  "experiment": "Yelp2018 cost table from existing logs",
+  "method": "proxy based on Sample timer sum in logs (no re-training)",
+  "epochs_compared": 300,
+  "models": {
+    "MF": {
+      "per_seed": [
+        {
+          "seed": 2020,
+          "log": "code/runs/main_mf_yelp2018_seed2020_1000_0330_171256.log",
+          "sample_proxy_total_sec": 8077.360000000002,
+          "sample_proxy_sec_per_epoch": 26.92453333333334
+        },
+        {
+          "seed": 2021,
+          "log": "code/runs/serial_mf_yelp2018_seed2021_1000_0402_093000.log",
+          "sample_proxy_total_sec": 8445.880000000005,
+          "sample_proxy_sec_per_epoch": 28.152933333333348
+        },
+        {
+          "seed": 2022,
+          "log": "code/runs/serial_resume_mf_yelp2018_seed2022_1000_0403_095738.log",
+          "sample_proxy_total_sec": 8152.369999999996,
+          "sample_proxy_sec_per_epoch": 27.174566666666653
+        }
+      ],
+      "aggregate": {
+        "sample_proxy_total_sec_mean": 8225.203333333335,
+        "sample_proxy_total_sec_std": 159.01838139731788,
+        "sample_proxy_sec_per_epoch_mean": 27.417344444444446,
+        "sample_proxy_sec_per_epoch_std": 0.530061271324393,
+        "sample_proxy_total_hours_mean": 2.284778703703704
+      }
+    },
+    "LightGCN": {
+      "per_seed": [
+        {
+          "seed": 2020,
+          "log": "code/runs/main_lgn_yelp2018_layer3_seed2020_1000_0330_171259.log",
+          "sample_proxy_total_sec": 8074.820000000001,
+          "sample_proxy_sec_per_epoch": 26.91606666666667
+        },
+        {
+          "seed": 2021,
+          "log": "code/runs/rerun_lgn_yelp2018_layer3_seed2021_1000_0404_090114.log",
+          "sample_proxy_total_sec": 7972.09,
+          "sample_proxy_sec_per_epoch": 26.573633333333333
+        },
+        {
+          "seed": 2022,
+          "log": "code/runs/rerun_lgn_yelp2018_layer3_seed2022_1000_0406_100122.log",
+          "sample_proxy_total_sec": 8204.800000000003,
+          "sample_proxy_sec_per_epoch": 27.349333333333345
+        }
+      ],
+      "aggregate": {
+        "sample_proxy_total_sec_mean": 8083.903333333335,
+        "sample_proxy_total_sec_std": 95.22032777838166,
+        "sample_proxy_sec_per_epoch_mean": 26.94634444444445,
+        "sample_proxy_sec_per_epoch_std": 0.3174010925946063,
+        "sample_proxy_total_hours_mean": 2.245528703703704
+      }
+    },
+    "NGCF": {
+      "per_seed": [
+        {
+          "seed": 2020,
+          "log": "code/exp_logs/ngcf_yelp2018_ep300_s2020.log",
+          "sample_proxy_total_sec": 8077.589999999998,
+          "sample_proxy_sec_per_epoch": 26.925299999999993
+        },
+        {
+          "seed": 2021,
+          "log": "code/exp_logs/ngcf_yelp2018_ep300_s2021.log",
+          "sample_proxy_total_sec": 7897.650000000001,
+          "sample_proxy_sec_per_epoch": 26.3255
+        },
+        {
+          "seed": 2022,
+          "log": "code/exp_logs/ngcf_yelp2018_ep300_s2022.log",
+          "sample_proxy_total_sec": 8101.4700000000075,
+          "sample_proxy_sec_per_epoch": 27.004900000000024
+        }
+      ],
+      "aggregate": {
+        "sample_proxy_total_sec_mean": 8025.570000000002,
+        "sample_proxy_total_sec_std": 90.9769509271457,
+        "sample_proxy_sec_per_epoch_mean": 26.751900000000006,
+        "sample_proxy_sec_per_epoch_std": 0.30325650309048513,
+        "sample_proxy_total_hours_mean": 2.2293250000000007
+      }
+    }
+  }
+}

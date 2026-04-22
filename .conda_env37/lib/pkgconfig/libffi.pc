@@ -1,0 +1,11 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+toolexeclibdir=${libdir}
+includedir=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37/include
+
+Name: libffi
+Description: Library supporting Foreign Function Interfaces
+Version: 3.4.4
+Libs: -L${toolexeclibdir} -lffi
+Cflags: -I${includedir}

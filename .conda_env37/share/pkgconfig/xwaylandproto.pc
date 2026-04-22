@@ -1,0 +1,7 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37
+includedir=${prefix}/include
+
+Name: XwaylandProto
+Description: Xwayland extension headers
+Version: 1.0
+Cflags: -I${includedir}

@@ -1,0 +1,7 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37
+includedir=${prefix}/include
+ 
+Name: XF86VidModeProto
+Description: XF86VidMode extension headers
+Version: 2.3.1
+Cflags: -I${includedir}

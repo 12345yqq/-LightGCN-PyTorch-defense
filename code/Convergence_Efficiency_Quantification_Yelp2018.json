@@ -1,0 +1,190 @@
+{
+  "definition": {
+    "threshold_rule": "95% of mean model final value (per metric, using 3-seed mean final)",
+    "auc_rule": "trapz(value over step), and normalized AUC = trapz / (last_step-first_step)"
+  },
+  "metrics": {
+    "Recall@[20]": {
+      "threshold": 0.05868907428036133,
+      "mean_model": {
+        "seed_stats": [
+          {
+            "final_value": 0.061640094965696335,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 16.237376293283887,
+            "auc_norm": 0.05599095273546168,
+            "reach_step_to_threshold": 130,
+            "reach_epoch_to_threshold": 140
+          },
+          {
+            "final_value": 0.06192614883184433,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 16.281796405964997,
+            "auc_norm": 0.056144125537810334,
+            "reach_step_to_threshold": 130,
+            "reach_epoch_to_threshold": 140
+          },
+          {
+            "final_value": 0.06176767498254776,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 16.266754835960455,
+            "auc_norm": 0.05609225805503605,
+            "reach_step_to_threshold": 130,
+            "reach_epoch_to_threshold": 140
+          }
+        ],
+        "reach_step_summary": {
+          "mean": 130.0,
+          "std": 0.0
+        },
+        "reach_epoch_summary": {
+          "mean": 140.0,
+          "std": 0.0
+        },
+        "auc_norm_summary": {
+          "mean": 0.05607577877610268,
+          "std": 6.360897117261336e-05
+        },
+        "final_value_summary": {
+          "mean": 0.061777972926696144,
+          "std": 0.00011700780408393321
+        }
+      },
+      "learnable_model": {
+        "seed_stats": [
+          {
+            "final_value": 0.04711245000362396,
+            "num_points": 26,
+            "last_step": 250,
+            "auc_raw": 10.612446645391174,
+            "auc_norm": 0.042449786581564695,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          },
+          {
+            "final_value": 0.048963699489831924,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 12.55554511299124,
+            "auc_norm": 0.043294983148245654,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          },
+          {
+            "final_value": 0.04864700883626938,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 12.53288314503152,
+            "auc_norm": 0.04321683843114317,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          }
+        ],
+        "reach_step_summary": null,
+        "reach_epoch_summary": null,
+        "auc_norm_summary": {
+          "mean": 0.04298720272031784,
+          "std": 0.0003813473734422996
+        },
+        "final_value_summary": {
+          "mean": 0.04824105277657509,
+          "std": 0.0008084476510977469
+        }
+      }
+    },
+    "NDCG@[20]": {
+      "threshold": 0.048128936315576236,
+      "mean_model": {
+        "seed_stats": [
+          {
+            "final_value": 0.050685614347457886,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 13.203659201826667,
+            "auc_norm": 0.04552985931664368,
+            "reach_step_to_threshold": 140,
+            "reach_epoch_to_threshold": 150
+          },
+          {
+            "final_value": 0.05086248740553856,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 13.231086929590674,
+            "auc_norm": 0.0456244376882437,
+            "reach_step_to_threshold": 140,
+            "reach_epoch_to_threshold": 150
+          },
+          {
+            "final_value": 0.050438012927770615,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 13.180966147774598,
+            "auc_norm": 0.0454516074061193,
+            "reach_step_to_threshold": 150,
+            "reach_epoch_to_threshold": 160
+          }
+        ],
+        "reach_step_summary": {
+          "mean": 143.33333333333334,
+          "std": 4.714045207910316
+        },
+        "reach_epoch_summary": {
+          "mean": 153.33333333333334,
+          "std": 4.714045207910316
+        },
+        "auc_norm_summary": {
+          "mean": 0.04553530147033557,
+          "std": 7.066252841218545e-05
+        },
+        "final_value_summary": {
+          "mean": 0.050662038226922355,
+          "std": 0.00017409101195202801
+        }
+      },
+      "learnable_model": {
+        "seed_stats": [
+          {
+            "final_value": 0.0379103347659111,
+            "num_points": 26,
+            "last_step": 250,
+            "auc_raw": 8.580809864070034,
+            "auc_norm": 0.03432323945628014,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          },
+          {
+            "final_value": 0.03937283903360367,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 10.194157579244347,
+            "auc_norm": 0.03515226751463568,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          },
+          {
+            "final_value": 0.039208587259054184,
+            "num_points": 30,
+            "last_step": 290,
+            "auc_raw": 10.148208694154164,
+            "auc_norm": 0.03499382308329022,
+            "reach_step_to_threshold": null,
+            "reach_epoch_to_threshold": null
+          }
+        ],
+        "reach_step_summary": null,
+        "reach_epoch_summary": null,
+        "auc_norm_summary": {
+          "mean": 0.034823110018068676,
+          "std": 0.0003593318738651796
+        },
+        "final_value_summary": {
+          "mean": 0.03883058701952299,
+          "std": 0.0006541624767945524
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env37
+includedir=${prefix}/include
+ 
+Name: GLProto
+Description: GL extension headers
+Version: 1.4.17
+Cflags: -I${includedir}
