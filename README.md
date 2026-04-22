@@ -17,6 +17,31 @@ Author: Prof. Xiangnan He (staff.ustc.edu.cn/~hexn/)
 
 (Also see Tensorflow [implementation](https://github.com/kuandeng/LightGCN))
 
+## 答辩结果索引
+
+本仓库包含一套用于毕业答辩的实验与分析材料，核心场景为 Yelp2018 下的统一协议多种子对比。
+
+核心一页文档：
+- [答辩一页总览](code/Defense_OnePage_Overview_Yelp2018.md)
+- [LightGCN vs NGCF（300 epoch，3 seeds）](code/Comparison_LightGCN_vs_NGCF_Yelp2018_300_3Seeds.md)
+- [训练代价表](code/Training_Cost_Table_Yelp2018.md)
+- [一页误差分析](code/Error_Analysis_OnePage_LightGCN_vs_NGCF_Yelp2018.md)
+
+结构化结果文件（json）：
+- [LightGCN vs NGCF 汇总 json](code/Comparison_LightGCN_vs_NGCF_Yelp2018_300_3Seeds.json)
+- [NGCF 300 epoch 3-seed 汇总 json](code/NGCF_Yelp2018_300_3Seeds_Summary.json)
+- [训练代价表 json](code/Training_Cost_Table_Yelp2018.json)
+
+实验脚本：
+- [NGCF yelp2018 300 epoch 3-seed 脚本](run_yelp2018_300_3seeds_ngcf.sh)
+- [LightGCN yelp2018 300 epoch 3-seed 脚本](run_yelp2018_300_3seeds_lgn.sh)
+- [HNM 快筛脚本](run_hnm_quick_screen_3groups.sh)
+
+仓库级说明文档：
+- [仓库答辩执行清单](code/Defense_Repository_Checklist.md)
+- [答辩变更日志](CHANGELOG_Defense.md)
+- [实验索引](EXPERIMENT_INDEX.md)
+
 ## Introduction
 
 In this work, we aim to simplify the design of GCN to make it more concise and appropriate for recommendation. We propose a new model named LightGCN,including only the most essential component in GCN—neighborhood aggregation—for collaborative filtering
