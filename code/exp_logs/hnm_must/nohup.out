@@ -1,0 +1,165 @@
+nohup: ignoring input
+[Device] cpu
+[0;30;43mCpp extension not loaded[0m
+>>SEED: 2020
+[0;30;43mloading [/public/home/cqu_cs_205/LightGCN-PyTorch-master/data/gowalla][0m
+810128 interactions for training
+217242 interactions for testing
+gowalla Sparsity : 0.0008396216228570436
+gowalla is ready to go
+===========config================
+{'A_n_fold': 100,
+ 'A_split': False,
+ 'bigdata': False,
+ 'bpr_batch_size': 2048,
+ 'decay': 0.0001,
+ 'dropout': 0,
+ 'hnm_curr_end': 0.6,
+ 'hnm_curr_start': 0.2,
+ 'hnm_mode': 'none',
+ 'hnm_ratio': 0.0,
+ 'hnm_warmup_epochs': 100,
+ 'keep_prob': 0.6,
+ 'latent_dim_rec': 64,
+ 'layer_agg': 'mean',
+ 'layer_w_l2': 0.0,
+ 'layer_w_tau': 1.0,
+ 'lightGCN_n_layers': 3,
+ 'lr': 0.001,
+ 'multicore': 0,
+ 'pretrain': 0,
+ 'test_u_batch_size': 100}
+cores for test: 32
+comment: g1_baseline_seed2020
+tensorboard: 1
+LOAD: 0
+Weight path: ./checkpoints
+Test Topks: [20]
+using bpr loss
+===========end===================
+[0;30;43muse NORMAL distribution initilizer[0m
+loading adjacency matrix
+successfully loaded...
+don't split the matrix
+lgn is already to go(dropout:0)
+load and save to /public/home/cqu_cs_205/LightGCN-PyTorch-master/code/checkpoints/lgn-gowalla-3-64.pth.tar
+[0;30;43m[TEST][0m
+{'precision': array([0.00018755]), 'recall': array([0.00053749]), 'ndcg': array([0.00040836])}
+EPOCH[1/100] loss0.545-hnm:none@0.000-|Sample:16.94|
+EPOCH[2/100] loss0.240-hnm:none@0.000-|Sample:16.65|
+EPOCH[3/100] loss0.163-hnm:none@0.000-|Sample:16.55|
+EPOCH[4/100] loss0.131-hnm:none@0.000-|Sample:17.11|
+EPOCH[5/100] loss0.112-hnm:none@0.000-|Sample:16.77|
+EPOCH[6/100] loss0.099-hnm:none@0.000-|Sample:16.97|
+EPOCH[7/100] loss0.090-hnm:none@0.000-|Sample:16.83|
+EPOCH[8/100] loss0.084-hnm:none@0.000-|Sample:17.03|
+EPOCH[9/100] loss0.078-hnm:none@0.000-|Sample:16.75|
+EPOCH[10/100] loss0.074-hnm:none@0.000-|Sample:16.63|
+[0;30;43m[TEST][0m
+{'precision': array([0.03665852]), 'recall': array([0.12015337]), 'ndcg': array([0.10059574])}
+EPOCH[11/100] loss0.071-hnm:none@0.000-|Sample:16.97|
+EPOCH[12/100] loss0.068-hnm:none@0.000-|Sample:16.91|
+EPOCH[13/100] loss0.065-hnm:none@0.000-|Sample:16.58|
+EPOCH[14/100] loss0.064-hnm:none@0.000-|Sample:16.97|
+EPOCH[15/100] loss0.061-hnm:none@0.000-|Sample:17.27|
+EPOCH[16/100] loss0.059-hnm:none@0.000-|Sample:17.15|
+EPOCH[17/100] loss0.057-hnm:none@0.000-|Sample:16.99|
+EPOCH[18/100] loss0.055-hnm:none@0.000-|Sample:17.31|
+EPOCH[19/100] loss0.054-hnm:none@0.000-|Sample:16.82|
+EPOCH[20/100] loss0.052-hnm:none@0.000-|Sample:16.92|
+[0;30;43m[TEST][0m
+{'precision': array([0.03967613]), 'recall': array([0.13131503]), 'ndcg': array([0.10875967])}
+EPOCH[21/100] loss0.052-hnm:none@0.000-|Sample:17.10|
+EPOCH[22/100] loss0.050-hnm:none@0.000-|Sample:16.75|
+EPOCH[23/100] loss0.049-hnm:none@0.000-|Sample:16.99|
+EPOCH[24/100] loss0.048-hnm:none@0.000-|Sample:16.70|
+EPOCH[25/100] loss0.047-hnm:none@0.000-|Sample:16.92|
+EPOCH[26/100] loss0.046-hnm:none@0.000-|Sample:16.78|
+EPOCH[27/100] loss0.045-hnm:none@0.000-|Sample:17.09|
+EPOCH[28/100] loss0.044-hnm:none@0.000-|Sample:17.15|
+EPOCH[29/100] loss0.043-hnm:none@0.000-|Sample:16.79|
+EPOCH[30/100] loss0.042-hnm:none@0.000-|Sample:16.61|
+[0;30;43m[TEST][0m
+{'precision': array([0.04200717]), 'recall': array([0.13924743]), 'ndcg': array([0.11538367])}
+EPOCH[31/100] loss0.042-hnm:none@0.000-|Sample:16.97|
+EPOCH[32/100] loss0.041-hnm:none@0.000-|Sample:16.62|
+EPOCH[33/100] loss0.040-hnm:none@0.000-|Sample:16.90|
+EPOCH[34/100] loss0.039-hnm:none@0.000-|Sample:17.28|
+EPOCH[35/100] loss0.039-hnm:none@0.000-|Sample:16.62|
+EPOCH[36/100] loss0.038-hnm:none@0.000-|Sample:16.55|
+EPOCH[37/100] loss0.037-hnm:none@0.000-|Sample:16.93|
+EPOCH[38/100] loss0.037-hnm:none@0.000-|Sample:17.17|
+EPOCH[39/100] loss0.036-hnm:none@0.000-|Sample:17.09|
+EPOCH[40/100] loss0.036-hnm:none@0.000-|Sample:16.95|
+[0;30;43m[TEST][0m
+{'precision': array([0.0435076]), 'recall': array([0.14442291]), 'ndcg': array([0.1201881])}
+EPOCH[41/100] loss0.035-hnm:none@0.000-|Sample:17.33|
+EPOCH[42/100] loss0.035-hnm:none@0.000-|Sample:16.72|
+EPOCH[43/100] loss0.034-hnm:none@0.000-|Sample:17.37|
+EPOCH[44/100] loss0.034-hnm:none@0.000-|Sample:17.16|
+EPOCH[45/100] loss0.033-hnm:none@0.000-|Sample:16.56|
+EPOCH[46/100] loss0.033-hnm:none@0.000-|Sample:17.10|
+EPOCH[47/100] loss0.032-hnm:none@0.000-|Sample:16.68|
+EPOCH[48/100] loss0.032-hnm:none@0.000-|Sample:17.19|
+EPOCH[49/100] loss0.032-hnm:none@0.000-|Sample:17.31|
+EPOCH[50/100] loss0.031-hnm:none@0.000-|Sample:16.86|
+[0;30;43m[TEST][0m
+{'precision': array([0.04473675]), 'recall': array([0.14866195]), 'ndcg': array([0.1240462])}
+EPOCH[51/100] loss0.031-hnm:none@0.000-|Sample:16.67|
+EPOCH[52/100] loss0.030-hnm:none@0.000-|Sample:16.81|
+EPOCH[53/100] loss0.030-hnm:none@0.000-|Sample:16.67|
+EPOCH[54/100] loss0.030-hnm:none@0.000-|Sample:16.80|
+EPOCH[55/100] loss0.030-hnm:none@0.000-|Sample:17.13|
+EPOCH[56/100] loss0.029-hnm:none@0.000-|Sample:16.98|
+EPOCH[57/100] loss0.030-hnm:none@0.000-|Sample:17.29|
+EPOCH[58/100] loss0.028-hnm:none@0.000-|Sample:16.98|
+EPOCH[59/100] loss0.029-hnm:none@0.000-|Sample:17.17|
+EPOCH[60/100] loss0.028-hnm:none@0.000-|Sample:16.62|
+[0;30;43m[TEST][0m
+{'precision': array([0.04582691]), 'recall': array([0.15269575]), 'ndcg': array([0.12769871])}
+EPOCH[61/100] loss0.028-hnm:none@0.000-|Sample:17.34|
+EPOCH[62/100] loss0.028-hnm:none@0.000-|Sample:16.80|
+EPOCH[63/100] loss0.027-hnm:none@0.000-|Sample:17.17|
+EPOCH[64/100] loss0.027-hnm:none@0.000-|Sample:16.57|
+EPOCH[65/100] loss0.027-hnm:none@0.000-|Sample:17.11|
+EPOCH[66/100] loss0.027-hnm:none@0.000-|Sample:17.23|
+EPOCH[67/100] loss0.026-hnm:none@0.000-|Sample:17.00|
+EPOCH[68/100] loss0.026-hnm:none@0.000-|Sample:16.72|
+EPOCH[69/100] loss0.026-hnm:none@0.000-|Sample:17.01|
+EPOCH[70/100] loss0.026-hnm:none@0.000-|Sample:16.72|
+[0;30;43m[TEST][0m
+{'precision': array([0.04667091]), 'recall': array([0.15541536]), 'ndcg': array([0.13018519])}
+EPOCH[71/100] loss0.026-hnm:none@0.000-|Sample:16.96|
+EPOCH[72/100] loss0.025-hnm:none@0.000-|Sample:17.32|
+EPOCH[73/100] loss0.025-hnm:none@0.000-|Sample:17.00|
+EPOCH[74/100] loss0.025-hnm:none@0.000-|Sample:17.16|
+EPOCH[75/100] loss0.024-hnm:none@0.000-|Sample:16.76|
+EPOCH[76/100] loss0.024-hnm:none@0.000-|Sample:16.79|
+EPOCH[77/100] loss0.024-hnm:none@0.000-|Sample:16.50|
+EPOCH[78/100] loss0.023-hnm:none@0.000-|Sample:17.11|
+EPOCH[79/100] loss0.023-hnm:none@0.000-|Sample:16.59|
+EPOCH[80/100] loss0.023-hnm:none@0.000-|Sample:17.07|
+[0;30;43m[TEST][0m
+{'precision': array([0.0476472]), 'recall': array([0.15883808]), 'ndcg': array([0.13281378])}
+EPOCH[81/100] loss0.023-hnm:none@0.000-|Sample:16.85|
+EPOCH[82/100] loss0.023-hnm:none@0.000-|Sample:16.96|
+EPOCH[83/100] loss0.023-hnm:none@0.000-|Sample:16.80|
+EPOCH[84/100] loss0.023-hnm:none@0.000-|Sample:17.08|
+EPOCH[85/100] loss0.023-hnm:none@0.000-|Sample:16.81|
+EPOCH[86/100] loss0.022-hnm:none@0.000-|Sample:16.92|
+EPOCH[87/100] loss0.022-hnm:none@0.000-|Sample:17.06|
+EPOCH[88/100] loss0.022-hnm:none@0.000-|Sample:17.30|
+EPOCH[89/100] loss0.022-hnm:none@0.000-|Sample:16.96|
+EPOCH[90/100] loss0.022-hnm:none@0.000-|Sample:16.71|
+[0;30;43m[TEST][0m
+{'precision': array([0.04828354]), 'recall': array([0.16123923]), 'ndcg': array([0.13487603])}
+EPOCH[91/100] loss0.022-hnm:none@0.000-|Sample:17.37|
+EPOCH[92/100] loss0.021-hnm:none@0.000-|Sample:16.95|
+EPOCH[93/100] loss0.021-hnm:none@0.000-|Sample:16.79|
+EPOCH[94/100] loss0.021-hnm:none@0.000-|Sample:17.00|
+EPOCH[95/100] loss0.021-hnm:none@0.000-|Sample:16.89|
+EPOCH[96/100] loss0.021-hnm:none@0.000-|Sample:17.20|
+EPOCH[97/100] loss0.021-hnm:none@0.000-|Sample:16.58|
+EPOCH[98/100] loss0.021-hnm:none@0.000-|Sample:17.31|
+EPOCH[99/100] loss0.021-hnm:none@0.000-|Sample:16.94|
+EPOCH[100/100] loss0.021-hnm:none@0.000-|Sample:17.16|

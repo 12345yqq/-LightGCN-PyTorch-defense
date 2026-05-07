@@ -1,0 +1,5 @@
+mode	seed	duration_sec	last_test
+baseline	2020	18635	{'precision': array([0.02769673]), 'recall': array([0.06164009]), 'ndcg': array([0.05068562])}
+baseline_resume	2020	9959	{'precision': array([0.02767147]), 'recall': array([0.06150227]), 'ndcg': array([0.0505214])}
+simgcl	2020	48634	{'precision': array([0.02022546]), 'recall': array([0.04163481]), 'ndcg': array([0.03582066])}
+simgcl	2020	48862	{'precision': array([0.02022546]), 'recall': array([0.04163481]), 'ndcg': array([0.03582066])}

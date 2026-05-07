@@ -52,6 +52,23 @@ In this work, we aim to simplify the design of GCN to make it more concise and a
 
 `pip install -r requirements.txt`
 
+### 答辩一体化可视化页面
+
+本仓库提供了一个一体化 Streamlit 页面，包含两部分：
+- 左侧：实验结果看板（Recall@20、NDCG@20、模型对比、seed 波动、训练耗时、收敛曲线）
+- 右侧：在线推荐演示（输入用户ID，基于训练好的 checkpoint 实时输出 Top-K 推荐）
+
+运行方式：
+
+```bash
+pip install streamlit
+streamlit run code/dashboard_app.py
+```
+
+说明：
+- 页面默认读取 Yelp2018 相关结果文件与 checkpoints。
+- 如果希望演示不同模型，可在页面右侧切换不同权重文件（LightGCN/NGCF/MF）。
+
 
 
 ## Dataset

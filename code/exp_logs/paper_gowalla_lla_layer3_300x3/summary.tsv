@@ -1,0 +1,4 @@
+group	dataset	model	seed	params	precision20	recall20	ndcg20	duration_sec
+gowalla_lla	gowalla	lgn	2020	layer_agg=learnable;layer_w_l2=1e-4;layer_w_tau=0.5;cl_weight=0.01;cl_temp=0.2	0.03275839	0.10243441	0.08201244	16716
+gowalla_lla	gowalla	lgn	2021	layer_agg=learnable;layer_w_l2=1e-4;layer_w_tau=0.5;cl_weight=0.01;cl_temp=0.2	0.03271318	0.10256416	0.08224108	16843
+gowalla_lla	gowalla	lgn	2022	layer_agg=learnable;layer_w_l2=1e-4;layer_w_tau=0.5;cl_weight=0.01;cl_temp=0.2	0.03328756	0.10402537	0.08290168	16840

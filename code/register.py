@@ -9,8 +9,11 @@ data_path = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "data", world.dataset)
 )
 
-# 实例化数据集加载器
-dataset = dataloader.Loader(path=data_path)
+# 实例化数据集加载器（LastFM 需要专用读取器）
+if world.dataset == 'lastfm':
+    dataset = dataloader.LastFM(path=data_path)
+else:
+    dataset = dataloader.Loader(path=data_path)
 
 # 打印核心配置信息，便于实验复现与检查
 print('===========config================')

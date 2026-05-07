@@ -1,0 +1,7 @@
+group	dataset	model	seed	cl_weight	precision20	recall20	ndcg20	duration_sec
+lastfm_baseline	lastfm	lgn	2020	0.0	0.07325081	0.26157273	0.20131796	363
+lastfm_baseline	lastfm	lgn	2021	0.0	0.07405813	0.26359486	0.20301144	357
+lastfm_baseline	lastfm	lgn	2022	0.0	0.07300861	0.26132980	0.20224442	375
+lastfm_simgcl	lastfm	lgn	2020	0.01	0.07723358	0.27537736	0.21657792	434
+lastfm_simgcl	lastfm	lgn	2021	0.01	0.07723358	0.27519580	0.21527595	429
+lastfm_simgcl	lastfm	lgn	2022	0.01	0.07707212	0.27405585	0.21456618	421

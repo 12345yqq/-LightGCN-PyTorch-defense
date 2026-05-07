@@ -1,0 +1,4 @@
+dataset	seed	duration_sec	log
+gowalla	2020	8110	code/exp_logs/paper_gowalla_ngcf_300x3/gowalla_seed2020.log
+gowalla	2021	7955	code/exp_logs/paper_gowalla_ngcf_300x3/gowalla_seed2021.log
+gowalla	2022	8141	code/exp_logs/paper_gowalla_ngcf_300x3/gowalla_seed2022.log

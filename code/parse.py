@@ -57,6 +57,12 @@ def parse_args():
     # L2 正则权重（weight decay）
     parser.add_argument('--decay', type=float,default=1e-4,
                         help="the weight decay for l2 normalizaton")
+    # SimGCL: 图对比学习损失权重
+    parser.add_argument('--cl_weight', type=float, default=0.0,
+                        help="weight of contrastive learning loss (SimGCL). Default 0.0 means disabled. Try 0.1 or 0.2")
+    # SimGCL: InfoNCE 温度系数
+    parser.add_argument('--cl_temp', type=float, default=0.2,
+                        help="temperature for contrastive learning softmax")
     # 是否启用图 dropout
     parser.add_argument('--dropout', type=int,default=0,
                         help="using the dropout or not")

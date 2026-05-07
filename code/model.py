@@ -243,7 +243,7 @@ class LightGCN(BasicModel):
         return graph
     
     # LightGCN 传播主函数：返回最终用户/物品表示
-    def computer(self):
+    def computer(self, perturbed=False):
         """
         propagate methods for lightGCN
         """       
@@ -261,7 +261,7 @@ class LightGCN(BasicModel):
             # 仅在训练阶段做 dropout
             if self.training:
                 # 打印提示
-                print("droping")
+            #   print("droping")
                 # 获取 dropout 后图
                 g_droped = self.__dropout(self.keep_prob)
             # 测试阶段不做 dropout
@@ -275,6 +275,16 @@ class LightGCN(BasicModel):
         
         # 逐层传播，共 n_layers 层
         for layer in range(self.n_layers):
+            # 注入 SimGCL 对比学习特征空间噪声 (仅当 perturbed=True 时)
+            if perturbed:
+                # 生成与特征同样维度的均匀分布噪声
+                random_noise = torch.rand_like(all_emb).to(all_emb.device)
+                # 将随机噪声居中并通过 L2 归一化限制方向
+                random_noise = torch.nn.functional.normalize(random_noise * 2.0 - 1.0, p=2, dim=1)
+                # 按 epsilon (默认 0.1) 缩放噪声并注入
+                eps = 0.1
+                all_emb = all_emb + random_noise * eps
+
             # 分块图传播分支
             if self.A_split:
                 # 临时保存每块传播结果
@@ -373,6 +383,38 @@ class LightGCN(BasicModel):
         if self.layer_agg == 'learnable' and layer_w_l2 > 0:
             reg_loss = reg_loss + layer_w_l2 * torch.sum(self.layer_weights.pow(2))
         
+        # ---------------------
+        # SimGCL 图对比学习特征增强
+        # ---------------------
+        cl_weight = self.config.get('cl_weight', 0.0)
+        if cl_weight > 0.0:
+            cl_temp = self.config.get('cl_temp', 0.2)
+            # 获取两次随机加躁扰动后的节点表示
+            users_1, items_1 = self.computer(perturbed=True)
+            users_2, items_2 = self.computer(perturbed=True)
+            
+            # 取当前 batch 的用户与物品 (仅正样本参与对比学习即可)
+            u_idx = users.long()
+            i_idx = pos.long()
+            
+            # 取出视角1与视角2中的对应嵌入并 L2 归一化
+            u_e1 = torch.nn.functional.normalize(users_1[u_idx], p=2, dim=1)
+            u_e2 = torch.nn.functional.normalize(users_2[u_idx], p=2, dim=1)
+            i_e1 = torch.nn.functional.normalize(items_1[i_idx], p=2, dim=1)
+            i_e2 = torch.nn.functional.normalize(items_2[i_idx], p=2, dim=1)
+            
+            # 使用内积计算 InfoNCE
+            def InfoNCE(view1, view2, temp):
+                # self-contrast
+                pos_score = torch.exp(torch.sum(view1 * view2, dim=1) / temp)
+                ttl_score = torch.sum(torch.exp(torch.matmul(view1, view2.t()) / temp), dim=1)
+                return -torch.log(pos_score / ttl_score).mean()
+            
+            # 将用户节点与物品节点的对比学习损失合并，按权重叠加至主 Loss
+            cl_loss_u = InfoNCE(u_e1, u_e2, cl_temp)
+            cl_loss_i = InfoNCE(i_e1, i_e2, cl_temp)
+            loss = loss + cl_weight * (cl_loss_u + cl_loss_i)
+
         # 返回主损失和正则损失
         return loss, reg_loss
        

@@ -1,0 +1,4 @@
+group	dataset	model	seed	params	precision20	recall20	ndcg20	duration_sec
+gowalla_lgn	gowalla	lgn	2020	layer_agg=mean	0.15005906	0.15005906	0.15005906	9953
+gowalla_lgn	gowalla	lgn	2021	layer_agg=mean	0.15095741	0.15095741	0.15095741	10017
+gowalla_lgn	gowalla	lgn	2022	layer_agg=mean	0.15029448	0.15029448	0.15029448	10026

@@ -1,0 +1,2 @@
+run_name,group,seed,hnm_mode,hnm_ratio,hnm_curr_start,hnm_curr_end,hnm_warmup_epochs,epochs,test_interval,topks,elapsed_sec,start_ts,end_ts
+g1_baseline_seed2020,robustness,2020,none,0.0,0.2,0.6,100,100,10,[20],38740,1777031959,1777070699

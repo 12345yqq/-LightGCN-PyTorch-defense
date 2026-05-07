@@ -1,0 +1,4 @@
+cl_weight	seed	duration_sec	last_test
+0.01	2020	16498	{'precision': array([0.05241644]), 'recall': array([0.17022764]), 'ndcg': array([0.14548038])}
+0.03	2020	16538	{'precision': array([0.04818139]), 'recall': array([0.15536702]), 'ndcg': array([0.13028904])}
+0.05	2020	16388	{'precision': array([0.04519894]), 'recall': array([0.14475024]), 'ndcg': array([0.11997708])}

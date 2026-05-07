@@ -1,0 +1,5 @@
+layer	dataset	seed	duration_sec	precision20	recall20	ndcg20	log
+1	yelp2018	2020	12246	0.0430877	0.0430877	0.0430877	code/exp_logs/paper_yelp2018_layer_sweep_300/layer1_seed2020.log
+2	yelp2018	2020	14758	0.0479816	0.0479816	0.0479816	code/exp_logs/paper_yelp2018_layer_sweep_300/layer2_seed2020.log
+3	yelp2018	2020	17644	0.05068562	0.05068562	0.05068562	code/exp_logs/paper_yelp2018_layer_sweep_300/layer3_seed2020.log
+4	yelp2018	2020	19995	0.05089873	0.05089873	0.05089873	code/exp_logs/paper_yelp2018_layer_sweep_300/layer4_seed2020.log

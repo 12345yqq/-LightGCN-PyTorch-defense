@@ -1,0 +1,4 @@
+run_name	seed	precision@20	recall@20	ndcg@20
+gowalla_lgn_layer3	2020	0.05364224	0.17671648	0.15005906
+gowalla_lgn_layer3	2021	0.05388171	0.17778546	0.15095741
+gowalla_lgn_layer3	2022	0.05393027	0.17772506	0.15029448
