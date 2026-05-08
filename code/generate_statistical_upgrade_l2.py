@@ -1,5 +1,13 @@
 import json
+from pathlib import Path
+
 import numpy as np
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = ROOT / "results"
+DOCS_DIR = ROOT / "docs"
+RESULTS_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
 
 
 def sign_test_p_two_sided(d):
@@ -24,9 +32,9 @@ def ci_fmt(ci):
 
 
 def main():
-    with open('TopK_Stability_Mean_vs_Learnable_Yelp2018.json', 'r', encoding='utf-8') as f:
+    with open(RESULTS_DIR / 'TopK_Stability_Mean_vs_Learnable_Yelp2018.json', 'r', encoding='utf-8') as f:
         base = json.load(f)
-    with open('L2_Resume_Results_Yelp2018.json', 'r', encoding='utf-8') as f:
+    with open(RESULTS_DIR / 'L2_Resume_Results_Yelp2018.json', 'r', encoding='utf-8') as f:
         l2 = json.load(f)
 
     mean_by_seed = {r['seed']: r['mean'] for r in base['rows']}
@@ -91,7 +99,9 @@ def main():
                 }
             }
 
-    with open('Statistical_Upgrade_L2_Yelp2018.json', 'w', encoding='utf-8') as f:
+    json_path = RESULTS_DIR / 'Statistical_Upgrade_L2_Yelp2018.json'
+    md_path = DOCS_DIR / 'Statistical_Upgrade_L2_Yelp2018.md'
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(summary, f, indent=2)
 
     lines = []
@@ -148,11 +158,11 @@ def main():
     lines.append('')
     lines.append(paragraph)
 
-    with open('Statistical_Upgrade_L2_Yelp2018.md', 'w', encoding='utf-8') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    print('saved Statistical_Upgrade_L2_Yelp2018.json')
-    print('saved Statistical_Upgrade_L2_Yelp2018.md')
+    print(f'saved {json_path}')
+    print(f'saved {md_path}')
 
 
 if __name__ == '__main__':

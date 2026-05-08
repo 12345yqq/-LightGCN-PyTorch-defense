@@ -107,6 +107,9 @@ def parse_args():
     parser.add_argument('--seed', type=int, default=2020, help='random seed')
     # 模型名称：mf / lgn / ngcf
     parser.add_argument('--model', type=str, default='lgn', help='rec-model, support [mf, lgn, ngcf]')
+    # 可选：指定权重文件名（相对于 code/checkpoints/）
+    parser.add_argument('--ckpt', type=str, default=None,
+                        help='checkpoint file name under code/checkpoints (optional)')
 
     # 返回解析后的参数对象
     return parser.parse_args()

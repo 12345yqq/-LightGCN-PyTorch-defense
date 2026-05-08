@@ -1,5 +1,7 @@
 import json
 import os
+from pathlib import Path
+
 import torch
 import numpy as np
 
@@ -7,6 +9,12 @@ import world
 import dataloader
 import model
 import Procedure
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = ROOT / "results"
+DOCS_DIR = ROOT / "docs"
+RESULTS_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
 
 
 def eval_ckpt(dataset, ckpt_name, tau, layer_w_l2=1e-3):
@@ -19,7 +27,7 @@ def eval_ckpt(dataset, ckpt_name, tau, layer_w_l2=1e-3):
     world.config['layer_w_tau'] = tau
 
     rec = model.LightGCN(world.config, dataset).to(world.device)
-    state = torch.load(os.path.join('checkpoints', ckpt_name), map_location=world.device)
+    state = torch.load(str(Path(world.FILE_PATH) / ckpt_name), map_location=world.device)
     md = rec.state_dict()
     state = {k: v for k, v in state.items() if k in md}
     md.update(state)
@@ -44,7 +52,7 @@ def agg_rows(rows):
 
 
 def main():
-    dataset = dataloader.Loader(path='../data/yelp2018')
+    dataset = dataloader.Loader(path=str(ROOT / 'data' / 'yelp2018'))
     taus = [0.5, 1.0, 2.0]
     seeds = [2020, 2021, 2022]
 
@@ -66,7 +74,9 @@ def main():
             'aggregate': agg_rows(rows)
         }
 
-    with open('Tau_Screen_Results_Yelp2018.json', 'w', encoding='utf-8') as f:
+    json_path = RESULTS_DIR / 'Tau_Screen_Results_Yelp2018.json'
+    md_path = DOCS_DIR / 'Tau_Screen_Results_Yelp2018.md'
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(all_out, f, indent=2)
 
     lines = []
@@ -88,11 +98,11 @@ def main():
             f"| {tau} | {p[0]:.6f} | {p[1]:.6f} | {p[2]:.6f} | {r[0]:.6f} | {r[1]:.6f} | {r[2]:.6f} | {n[0]:.6f} | {n[1]:.6f} | {n[2]:.6f} |"
         )
 
-    with open('Tau_Screen_Results_Yelp2018.md', 'w', encoding='utf-8') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    print('saved Tau_Screen_Results_Yelp2018.json')
-    print('saved Tau_Screen_Results_Yelp2018.md')
+    print(f'saved {json_path}')
+    print(f'saved {md_path}')
 
 
 if __name__ == '__main__':

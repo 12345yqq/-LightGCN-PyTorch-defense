@@ -1,10 +1,18 @@
 import json
+from pathlib import Path
+
 import torch
 
 import world
 import dataloader
 import model
 import Procedure
+
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = ROOT / "results"
+DOCS_DIR = ROOT / "docs"
+RESULTS_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
 
 
 def eval_ckpt(dataset, ckpt_name, layer_agg='learnable', layer_w_l2=1e-3):
@@ -16,7 +24,7 @@ def eval_ckpt(dataset, ckpt_name, layer_agg='learnable', layer_w_l2=1e-3):
     world.config['layer_w_l2'] = layer_w_l2
 
     rec = model.LightGCN(world.config, dataset).to(world.device)
-    state = torch.load('checkpoints/' + ckpt_name, map_location=world.device)
+    state = torch.load(str(Path(world.FILE_PATH) / ckpt_name), map_location=world.device)
     md = rec.state_dict()
     state = {k: v for k, v in state.items() if k in md}
     md.update(state)
@@ -30,7 +38,7 @@ def eval_ckpt(dataset, ckpt_name, layer_agg='learnable', layer_w_l2=1e-3):
 
 
 def main():
-    dataset = dataloader.Loader(path='../data/yelp2018')
+    dataset = dataloader.Loader(path=str(ROOT / 'data' / 'yelp2018'))
 
     ckpts = {
         2020: 'lgn-yelp2018-3-64-yelp300_lrn_l2_1e-3_s2020.pth.tar',
@@ -59,7 +67,9 @@ def main():
         }
     }
 
-    with open('L2_Resume_Results_Yelp2018.json', 'w', encoding='utf-8') as f:
+    json_path = RESULTS_DIR / 'L2_Resume_Results_Yelp2018.json'
+    md_path = DOCS_DIR / 'L2_Resume_Results_Yelp2018.md'
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(out, f, indent=2)
 
     ks = out['topks']
@@ -97,11 +107,11 @@ def main():
         f"| NDCG | {ag['ndcg']['mean'][0]:.6f} +- {ag['ndcg']['std'][0]:.6f} | {ag['ndcg']['mean'][1]:.6f} +- {ag['ndcg']['std'][1]:.6f} | {ag['ndcg']['mean'][2]:.6f} +- {ag['ndcg']['std'][2]:.6f} |"
     )
 
-    with open('L2_Resume_Results_Yelp2018.md', 'w', encoding='utf-8') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    print('saved L2_Resume_Results_Yelp2018.json')
-    print('saved L2_Resume_Results_Yelp2018.md')
+    print(f'saved {json_path}')
+    print(f'saved {md_path}')
 
 
 if __name__ == '__main__':

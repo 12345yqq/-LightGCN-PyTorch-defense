@@ -1,4 +1,6 @@
 import json
+from pathlib import Path
+
 import numpy as np
 import torch
 
@@ -7,11 +9,17 @@ import dataloader
 import model
 import Procedure
 
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = ROOT / "results"
+DOCS_DIR = ROOT / "docs"
+RESULTS_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
+
 
 def eval_ckpt(dataset, ckpt_name, layer_agg):
     world.config['layer_agg'] = layer_agg
     rec = model.LightGCN(world.config, dataset).to(world.device)
-    state = torch.load('checkpoints/' + ckpt_name, map_location=world.device)
+    state = torch.load(str(Path(world.FILE_PATH) / ckpt_name), map_location=world.device)
     md = rec.state_dict()
     state = {k: v for k, v in state.items() if k in md}
     md.update(state)
@@ -30,7 +38,7 @@ def main():
     world.config['multicore'] = 0
     world.config['test_u_batch_size'] = 100
 
-    dataset = dataloader.Loader(path='../data/yelp2018')
+    dataset = dataloader.Loader(path=str(ROOT / 'data' / 'yelp2018'))
 
     mean_ckpts = {
         2020: 'lgn-yelp2018-3-64-mean-epoch300-seed2020.pth.tar',
@@ -77,7 +85,9 @@ def main():
         'aggregate': agg,
     }
 
-    with open('TopK_Stability_Mean_vs_Learnable_Yelp2018.json', 'w', encoding='utf-8') as f:
+    json_path = RESULTS_DIR / 'TopK_Stability_Mean_vs_Learnable_Yelp2018.json'
+    md_path = DOCS_DIR / 'TopK_Stability_Mean_vs_Learnable_Yelp2018.md'
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(out, f, indent=2)
 
     ks = world.topks
@@ -108,11 +118,11 @@ def main():
     lines.append('- Recall: all (mean - learnable) > 0 across all K and all seeds.')
     lines.append('- NDCG: all (mean - learnable) > 0 across all K and all seeds.')
 
-    with open('TopK_Stability_Mean_vs_Learnable_Yelp2018.md', 'w', encoding='utf-8') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    print('saved TopK_Stability_Mean_vs_Learnable_Yelp2018.json')
-    print('saved TopK_Stability_Mean_vs_Learnable_Yelp2018.md')
+    print(f'saved {json_path}')
+    print(f'saved {md_path}')
     print(json.dumps(agg, indent=2))
 
 

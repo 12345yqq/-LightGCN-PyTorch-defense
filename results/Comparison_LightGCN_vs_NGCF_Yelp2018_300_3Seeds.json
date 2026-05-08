@@ -1,0 +1,50 @@
+{
+  "experiment": "Yelp2018 300-epoch 3-seeds comparison",
+  "sources": {
+    "lightgcn": "results/TopK_Stability_Mean_vs_Learnable_Yelp2018.json",
+    "ngcf": "results/NGCF_Yelp2018_300_3Seeds_Summary.json"
+  },
+  "per_seed": [
+    {
+      "seed": 2020,
+      "lgn_recall@20": 0.06156559501731123,
+      "ngcf_recall@20": 0.04382082,
+      "delta_recall_lgn_minus_ngcf": 0.017744775017311226,
+      "lgn_ndcg@20": 0.050689073121150494,
+      "ngcf_ndcg@20": 0.03579883,
+      "delta_ndcg_lgn_minus_ngcf": 0.014890243121150497
+    },
+    {
+      "seed": 2021,
+      "lgn_recall@20": 0.062015676272300785,
+      "ngcf_recall@20": 0.04357989,
+      "delta_recall_lgn_minus_ngcf": 0.018435786272300782,
+      "lgn_ndcg@20": 0.05065366957743897,
+      "ngcf_ndcg@20": 0.03546294,
+      "delta_ndcg_lgn_minus_ngcf": 0.015190729577438972
+    },
+    {
+      "seed": 2022,
+      "lgn_recall@20": 0.06174104203166014,
+      "ngcf_recall@20": 0.04407723,
+      "delta_recall_lgn_minus_ngcf": 0.01766381203166014,
+      "lgn_ndcg@20": 0.05054392256533794,
+      "ngcf_ndcg@20": 0.03597789,
+      "delta_ndcg_lgn_minus_ngcf": 0.014566032565337943
+    }
+  ],
+  "aggregate": {
+    "lgn_recall_mean": 0.061774104440424055,
+    "lgn_recall_std": 0.00018522621516800684,
+    "ngcf_recall_mean": 0.04382598,
+    "ngcf_recall_std": 0.0002030709861107682,
+    "delta_recall_mean": 0.01794812444042405,
+    "delta_recall_std": 0.0003464094859780951,
+    "lgn_ndcg_mean": 0.05062888842130914,
+    "lgn_ndcg_std": 6.179401393620404e-05,
+    "ngcf_ndcg_mean": 0.035746553333333334,
+    "ngcf_ndcg_std": 0.00021345259119741051,
+    "delta_ndcg_mean": 0.014882335087975804,
+    "delta_ndcg_std": 0.00025509278308556325
+  }
+}

@@ -1,9 +1,16 @@
 import json
 import os
+from pathlib import Path
+
 import numpy as np
 from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
 
-BASE = 'runs'
+ROOT = Path(__file__).resolve().parents[1]
+RESULTS_DIR = ROOT / "results"
+DOCS_DIR = ROOT / "docs"
+RESULTS_DIR.mkdir(exist_ok=True)
+DOCS_DIR.mkdir(exist_ok=True)
+BASE = str(ROOT / 'code' / 'runs')
 MEAN_RUNS = [
     '04-14-14h56m06s--lgn_mean_yelp300',
     '04-14-21h11m53s--yelp300_mean_s2021',
@@ -112,7 +119,9 @@ def main():
             }
         }
 
-    with open('Convergence_Efficiency_Quantification_Yelp2018.json', 'w', encoding='utf-8') as f:
+    json_path = RESULTS_DIR / 'Convergence_Efficiency_Quantification_Yelp2018.json'
+    md_path = DOCS_DIR / 'Convergence_Efficiency_Quantification_Yelp2018.md'
+    with open(json_path, 'w', encoding='utf-8') as f:
         json.dump(out, f, indent=2)
 
     # Markdown report
@@ -159,11 +168,11 @@ def main():
             f"- {metric.replace('@[20]','@20')}: mean reaches threshold at step {mr_txt} (vs {lr_txt} for learnable), and has normalized AUC {ma['mean']:.6f} (vs {la['mean']:.6f})."
         )
 
-    with open('Convergence_Efficiency_Quantification_Yelp2018.md', 'w', encoding='utf-8') as f:
+    with open(md_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines) + '\n')
 
-    print('saved Convergence_Efficiency_Quantification_Yelp2018.json')
-    print('saved Convergence_Efficiency_Quantification_Yelp2018.md')
+    print(f'saved {json_path}')
+    print(f'saved {md_path}')
 
 
 if __name__ == '__main__':

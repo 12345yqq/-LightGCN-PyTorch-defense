@@ -1,7 +1,0 @@
-prefix=/public/home/cqu_cs_205/LightGCN-PyTorch-master/.conda_env
-includedir=${prefix}/include
- 
-Name: InputProto
-Description: Input extension headers
-Version: 2.3.99.2
-Cflags: -I${includedir}

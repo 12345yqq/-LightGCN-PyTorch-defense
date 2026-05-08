@@ -14,11 +14,12 @@ ROOT = Path(__file__).resolve().parents[1]
 CODE_DIR = ROOT / "code"
 DATA_DIR = ROOT / "data" / "yelp2018"
 CHECKPOINT_DIR = CODE_DIR / "checkpoints"
+RESULTS_DIR = ROOT / "results"
 
-COMPARISON_JSON = CODE_DIR / "Comparison_LightGCN_vs_NGCF_Yelp2018_300_3Seeds.json"
-COST_JSON = CODE_DIR / "Training_Cost_Table_Yelp2018.json"
-TOPK_JSON = CODE_DIR / "TopK_Stability_Mean_vs_Learnable_Yelp2018.json"
-NGCF_JSON = CODE_DIR / "NGCF_Yelp2018_300_3Seeds_Summary.json"
+COMPARISON_JSON = RESULTS_DIR / "Comparison_LightGCN_vs_NGCF_Yelp2018_300_3Seeds.json"
+COST_JSON = RESULTS_DIR / "Training_Cost_Table_Yelp2018.json"
+TOPK_JSON = RESULTS_DIR / "TopK_Stability_Mean_vs_Learnable_Yelp2018.json"
+NGCF_JSON = RESULTS_DIR / "NGCF_Yelp2018_300_3Seeds_Summary.json"
 
 
 def inject_custom_style() -> None:
